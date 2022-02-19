@@ -5,12 +5,21 @@ body{
 
     
 }
+@viewport{
+    zoom:1.0;
+    width: extend-to-zoom;
+
+}
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
 .container{
     max-width: 360px;
     border: 2px solid black;
     border-radius:5px;
     margin: auto;
-   max-height: 640px;
+   max-height: 660px;
     
     overflow-y: auto;
 

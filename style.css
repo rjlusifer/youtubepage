@@ -1,4 +1,7 @@
 body{
+
+    max-width: 480px;
+    max: height 853px; ;
     margin:0px;
     padding:0px;
 

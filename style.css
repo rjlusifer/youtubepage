@@ -15,12 +15,13 @@ body{
     zoom: 1.0;
 }
 .container{
+    max-width: 955px;
     overflow:hidden;
     page-break-inside: 10%;
     border: 2px solid black;
     border-radius:5px;
     margin: auto;
-   max-height:710px;
+   max-height:896px;
     
     overflow-y: auto;
 
@@ -44,14 +45,15 @@ iframe{
     
 }
 .div1{
+    max-width: 955px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background:red;
-    position: fixed;
+    position: absolute;
     width: 100%;
     color:white;
     font-weight:bold;
-    font-size:20px;
+    font-size:25px;
     
 }
 .vedio{

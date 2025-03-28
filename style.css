@@ -22,6 +22,7 @@ header {
 
 .logo img {
     height: 40px;
+    border-radius:5px;
 }
 
 .search-box {

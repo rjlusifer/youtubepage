@@ -5,6 +5,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #181818;
     color: white;
+    text-align: center;
 }
 
 /* Header styles */
@@ -16,6 +17,7 @@ header {
     background-color: #202020;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
+    position: relative;
 }
 
 .logo img {
@@ -53,55 +55,47 @@ header {
 }
 
 /* Profile Section */
-.profile {
+.profile-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    text-align: center;
     margin: 20px 0;
 }
 
-.profile-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #202020;
-    padding: 15px;
-    border-radius: 10px;
-    width: fit-content;
-}
-
 .channel-logo {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
 }
 
 .channel-name {
     font-size: 20px;
-    margin: 0;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .subscribe-btn {
     background-color: red;
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 16px;
 }
 
 .subscribe-btn:hover {
     background-color: darkred;
 }
 
-/* Shorts Section */
+/* Shorts section */
 .shorts-container {
     display: flex;
     overflow-x: auto;
@@ -131,6 +125,7 @@ header {
     background: black;
     border-radius: 10px;
     overflow: hidden;
+    transition: transform 0.3s ease-in-out;
     scroll-snap-align: start;
 }
 
@@ -140,7 +135,7 @@ header {
     border: none;
 }
 
-/* Videos Section */
+/* Videos section */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
@@ -161,6 +156,12 @@ header {
     border-radius: 10px;
 }
 
+/* Hide leftmost shorts dynamically */
+.short.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .short {
@@ -178,14 +179,15 @@ header {
 }
 
 @media (max-width: 768px) {
-    .profile-container {
+    header {
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        padding: 10px;
     }
     
     .search-box {
         max-width: 300px;
+        margin-top: 10px;
     }
     
     .short {
@@ -211,8 +213,3 @@ header {
     .video-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-    
-    .video iframe {
-        height: 157px;
-    }
-}

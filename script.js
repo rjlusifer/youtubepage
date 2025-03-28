@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const shortsContainer = document.querySelector(".shorts-container");
-    const shortsSlider = document.querySelector(".shorts-slider");
-    const menuToggle = document.querySelector(".menu-toggle");
-    const icons = document.querySelector(".icons");
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         shortsContainer.scrollLeft = scrollLeft - walk;
     });
 
-    // Auto-hide leftmost shorts dynamically
+    // Hide the leftmost short when scrolling
     shortsContainer.addEventListener("scroll", () => {
         const shorts = document.querySelectorAll(".short");
         shorts.forEach((short, index) => {
@@ -41,21 +38,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Touch support for mobile sliding
+    // Mobile touch scrolling
     let touchStartX = 0;
-    let touchEndX = 0;
-    
     shortsContainer.addEventListener("touchstart", (e) => {
         touchStartX = e.touches[0].clientX;
     });
 
     shortsContainer.addEventListener("touchmove", (e) => {
-        touchEndX = e.touches[0].clientX;
+        let touchEndX = e.touches[0].clientX;
         let swipeDistance = touchStartX - touchEndX;
         shortsContainer.scrollLeft += swipeDistance * 0.5;
     });
 
-    // Mobile menu toggle functionality
+    // Responsive menu toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const icons = document.querySelector(".icons");
+
     menuToggle.addEventListener("click", () => {
         icons.classList.toggle("show");
     });

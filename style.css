@@ -89,9 +89,11 @@ header {
 .video-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
     padding: 20px;
+    max-width: 1280px;
+    margin: auto;
 }
 
 .video {
@@ -99,12 +101,12 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1280px;
+    max-width: 640px;
+    flex-grow: 1;
 }
 
 .video iframe {
     width: 100%;
-    max-width: 1280px;
     height: auto;
     aspect-ratio: 16 / 9;
     border-radius: 10px;
@@ -112,8 +114,8 @@ header {
 }
 
 @media (min-width: 1440px) {
-    .video iframe {
-        max-width: 1440px;
+    .video {
+        max-width: 720px;
     }
 }
 
@@ -122,8 +124,8 @@ header {
         width: 270px;
         height: 480px;
     }
-    .video iframe {
-        max-width: 854px;
+    .video {
+        max-width: 540px;
     }
 }
 
@@ -135,8 +137,8 @@ header {
         width: 240px;
         height: 426px;
     }
-    .video iframe {
-        max-width: 640px;
+    .video {
+        max-width: 480px;
     }
 }
 
@@ -148,7 +150,7 @@ header {
         width: 180px;
         height: 320px;
     }
-    .video iframe {
-        max-width: 426px;
+    .video {
+        max-width: 360px;
     }
 }

@@ -1,48 +1,51 @@
-/* Reset */
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
 }
 
-body {
-    background-color: #181818;
-    color: white;
-}
-
-/* Header */
+/* Header Styling */
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    background: #202020;
-    position: fixed;
-    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .logo img {
-    height: 24px;
+    height: 30px;
 }
 
 .search-box {
     display: flex;
-    flex: 1;
-    margin: 0 20px;
-    max-width: 500px;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .search-box input {
-    width: 100%;
-    padding: 8px;
     border: none;
-    border-radius: 20px;
+    padding: 8px;
+    outline: none;
+    width: 200px;
 }
 
-.icons i {
+.search-box button {
+    border: none;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.icons .material-icons {
+    font-size: 24px;
     margin-left: 15px;
     cursor: pointer;
 }
@@ -50,34 +53,44 @@ header {
 /* Profile Section */
 .profile {
     text-align: center;
-    padding: 80px 20px 20px;
+    padding: 20px;
 }
 
 .profile img {
-    width: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
 }
 
 .subscribe-btn {
-    background: red;
+    background-color: red;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
     margin-top: 10px;
 }
 
 /* Shorts Section */
 .section-title {
-    padding: 20px;
+    margin-left: 20px;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .shorts-container {
-    overflow-x: scroll;
-    white-space: nowrap;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
     padding: 10px;
+}
+
+.shorts-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 
 .shorts-slider {
@@ -85,10 +98,18 @@ header {
     gap: 10px;
 }
 
-.short iframe {
-    width: 180px;
-    height: 320px;
+.short {
+    min-width: 150px;
+    height: 250px;
     border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.short iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Video Grid */
@@ -99,13 +120,22 @@ header {
     padding: 20px;
 }
 
+.video {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .video iframe {
     width: 100%;
-    height: 180px;
+    height: 200px;
     border-radius: 10px;
 }
 
 .video p {
-    margin-top: 5px;
+    text-align: center;
     font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
 }

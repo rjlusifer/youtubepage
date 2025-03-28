@@ -139,7 +139,7 @@ header {
 /* Videos section */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-content: center;
@@ -149,11 +149,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .video iframe {
     width: 100%;
-    height: 270px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     border-radius: 10px;
 }
 
@@ -175,7 +178,7 @@ header {
     }
     
     .video iframe {
-        height: 202px;
+        height: auto;
     }
 }
 
@@ -197,11 +200,11 @@ header {
     }
     
     .video-grid {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     
     .video iframe {
-        height: 180px;
+        height: auto;
     }
 }
 
@@ -212,10 +215,10 @@ header {
     }
     
     .video-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
     
     .video iframe {
-        height: 157px;
+        height: auto;
     }
 }

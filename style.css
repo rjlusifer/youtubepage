@@ -2,8 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #0f0f0f;
-    color: white;
+    background-color: #f9f9f9;
 }
 
 header {
@@ -11,39 +10,38 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #212121;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-    height: 30px;
+    height: 40px;
 }
 
 .search-box {
     display: flex;
     align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 10px;
 }
 
 .search-box input {
+    border: none;
+    outline: none;
     padding: 5px;
-    border-radius: 2px;
-    border: none;
-}
-
-.search-box button {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+    width: 200px;
 }
 
 .icons i {
-    margin-left: 15px;
+    font-size: 24px;
+    margin: 0 10px;
     cursor: pointer;
 }
 
 .profile {
     text-align: center;
-    padding: 20px;
+    margin: 20px 0;
 }
 
 .profile img {
@@ -55,24 +53,24 @@ header {
 .subscribe-btn {
     background-color: red;
     color: white;
-    padding: 10px 20px;
     border: none;
+    padding: 10px 15px;
     cursor: pointer;
+    border-radius: 5px;
     font-weight: bold;
 }
 
 .section-title {
-    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .shorts-container {
+    overflow-x: scroll;
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
     padding: 10px;
-    white-space: nowrap;
     scrollbar-width: none;
-    -ms-overflow-style: none;
 }
 
 .shorts-container::-webkit-scrollbar {
@@ -85,20 +83,53 @@ header {
 }
 
 .short iframe {
-    width: 120px;
-    height: 213px;
+    width: 180px;
+    height: 320px;
     border-radius: 10px;
+    border: none;
 }
 
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-    padding: 10px;
+    gap: 15px;
+    padding: 20px;
+    justify-items: center;
 }
 
 .video iframe {
     width: 100%;
     height: 180px;
     border-radius: 10px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .search-box input {
+        width: 150px;
+    }
+
+    .short iframe {
+        width: 150px;
+        height: 267px;
+    }
+
+    .video iframe {
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-box input {
+        width: 100px;
+    }
+
+    .short iframe {
+        width: 120px;
+        height: 214px;
+    }
+
+    .video iframe {
+        height: 140px;
+    }
 }

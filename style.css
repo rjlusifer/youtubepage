@@ -1,171 +1,113 @@
+/* General styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
-    height: 40px;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 5px 10px;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    width: 200px;
-}
-
-.icons i {
-    font-size: 24px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-.profile {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.profile img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-.subscribe-btn {
-    background-color: red;
+    background-color: #181818;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
 }
 
-.section-title {
-    margin: 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
+/* Shorts section */
 .shorts-container {
-    overflow: hidden;
     display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
     padding: 10px;
-    position: relative;
     white-space: nowrap;
-    width: 100%;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.shorts-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 
 .shorts-slider {
     display: flex;
     gap: 10px;
-    transition: transform 0.3s ease-in-out;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-}
-
-.shorts-slider::-webkit-scrollbar {
-    display: none;
 }
 
 .short {
     flex: 0 0 auto;
-    transition: opacity 0.3s ease-in-out;
+    width: 200px;
+    height: 356px;
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    scroll-snap-align: start;
 }
 
 .short iframe {
-    width: 360px;
-    height: 640px;
-    border-radius: 10px;
+    width: 100%;
+    height: 100%;
     border: none;
 }
 
+/* Videos section */
 .video-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 20px;
     padding: 20px;
-    max-width: 1280px;
-    margin: auto;
-}
-
-.video {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 640px;
-    flex-grow: 1;
 }
 
 .video iframe {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 270px; /* 16:9 aspect ratio for larger screens */
     border-radius: 10px;
-    border: none;
 }
 
-@media (min-width: 1440px) {
-    .video {
-        max-width: 720px;
-    }
+/* Hide leftmost shorts dynamically */
+.short.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
+/* Responsive adjustments */
 @media (max-width: 1024px) {
-    .short iframe {
-        width: 270px;
-        height: 480px;
+    .short {
+        width: 180px;
+        height: 320px;
     }
-    .video {
-        max-width: 540px;
+    
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+    
+    .video iframe {
+        height: 202px;
     }
 }
 
 @media (max-width: 768px) {
-    .search-box input {
-        width: 150px;
+    .short {
+        width: 140px;
+        height: 260px;
     }
-    .short iframe {
-        width: 240px;
-        height: 426px;
+    
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
-    .video {
-        max-width: 480px;
+    
+    .video iframe {
+        height: 180px;
     }
 }
 
 @media (max-width: 480px) {
-    .search-box input {
-        width: 100px;
+    .short {
+        width: 120px;
+        height: 220px;
     }
-    .short iframe {
-        width: 180px;
-        height: 320px;
+    
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-    .video {
-        max-width: 360px;
+    
+    .video iframe {
+        height: 157px;
     }
 }

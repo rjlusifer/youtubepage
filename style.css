@@ -51,6 +51,11 @@ header {
 .icons i {
     font-size: 24px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icons i:hover {
+    transform: scale(1.1);
 }
 
 /* Hamburger Menu */
@@ -85,8 +90,8 @@ header {
 .shorts-container {
     display: flex;
     overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #202020;
     padding: 10px;
     white-space: nowrap;
     scroll-behavior: smooth;
@@ -95,7 +100,16 @@ header {
 }
 
 .shorts-container::-webkit-scrollbar {
-    display: none;
+    height: 6px;
+}
+
+.shorts-container::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.shorts-container::-webkit-scrollbar-track {
+    background: #202020;
 }
 
 .shorts-slider {
@@ -113,6 +127,11 @@ header {
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     scroll-snap-align: start;
+    position: relative;
+}
+
+.short:hover {
+    transform: scale(1.05);
 }
 
 .short iframe {

@@ -16,7 +16,6 @@ header {
     background-color: #202020;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
-    position: relative;
 }
 
 .logo img {
@@ -51,47 +50,63 @@ header {
 .icons i {
     font-size: 24px;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
 }
 
-.icons i:hover {
-    transform: scale(1.1);
+/* Profile Section */
+.profile {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-/* Hamburger Menu */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #202020;
+    padding: 15px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.channel-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.channel-name {
+    font-size: 20px;
+    margin: 0;
+}
+
+.subscribe-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
-@media (max-width: 768px) {
-    .icons {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #202020;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .icons.show {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
+.subscribe-btn:hover {
+    background-color: darkred;
 }
 
-/* Shorts section */
+/* Shorts Section */
 .shorts-container {
     display: flex;
     overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #555 #202020;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding: 10px;
     white-space: nowrap;
     scroll-behavior: smooth;
@@ -100,16 +115,7 @@ header {
 }
 
 .shorts-container::-webkit-scrollbar {
-    height: 6px;
-}
-
-.shorts-container::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 10px;
-}
-
-.shorts-container::-webkit-scrollbar-track {
-    background: #202020;
+    display: none;
 }
 
 .shorts-slider {
@@ -125,13 +131,7 @@ header {
     background: black;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease-in-out;
     scroll-snap-align: start;
-    position: relative;
-}
-
-.short:hover {
-    transform: scale(1.05);
 }
 
 .short iframe {
@@ -140,7 +140,7 @@ header {
     border: none;
 }
 
-/* Videos section */
+/* Videos Section */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
@@ -161,12 +161,6 @@ header {
     border-radius: 10px;
 }
 
-/* Hide leftmost shorts dynamically */
-.short.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .short {
@@ -184,15 +178,14 @@ header {
 }
 
 @media (max-width: 768px) {
-    header {
+    .profile-container {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        text-align: center;
     }
     
     .search-box {
         max-width: 300px;
-        margin-top: 10px;
     }
     
     .short {

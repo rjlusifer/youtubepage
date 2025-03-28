@@ -1,74 +1,111 @@
-body{
-
-    margin:0px;
-    padding:0px;
-
-    
-}
-@viewport{
-    zoom:1.0;
-    width: extend-to-zoom;
-
-}
-@-ms-viewport{
-    width: extend-to-zoom;
-    zoom: 1.0;
-}
-.container{
-    position: static;
-    max-width: 610px;
-    overflow:hidden;
-    page-break-inside: 10%;
-    border: 2px solid black;
-    border-radius:5px;
-    margin: auto;
-   max-height:753px;
-    
-    overflow-y: auto;
-
-    
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-
-img{
-margin-top:12%;
-width:60px;
-height:60px;
-border-radius:100%;
-display:flex;
+body {
+    background-color: #181818;
+    color: white;
 }
 
-iframe{
-    width:80%;
-    height:500px;
-    border-radius:15px;
-    border-color:#fff;
-    margin-right:10%;
-    margin-left:10%;
-    
-}
-.div1{
-    max-width: 640px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background:red;
-    position: absolute;
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #202020;
+    position: fixed;
     width: 100%;
-    color:white;
-    font-weight:bold;
-    
-    font-size:20px;
-    
-}
-.vedio{
-    
-    padding:5px;
-    width:95%;
+    top: 0;
+    z-index: 1000;
 }
 
-.material-icons{
-    color:#fff;
-    padding:0% 8% 0% 8%;
-    font-size:25px;
-    
-}   
+.logo img {
+    height: 24px;
+}
+
+.search-box {
+    display: flex;
+    flex: 1;
+    margin: 0 20px;
+    max-width: 500px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+}
+
+.icons i {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    padding: 80px 20px 20px;
+}
+
+.profile img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.subscribe-btn {
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Shorts Section */
+.section-title {
+    padding: 20px;
+    font-size: 20px;
+}
+
+.shorts-container {
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.shorts-slider {
+    display: flex;
+    gap: 10px;
+}
+
+.short iframe {
+    width: 180px;
+    height: 320px;
+    border-radius: 10px;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.video p {
+    margin-top: 5px;
+    font-size: 14px;
+}

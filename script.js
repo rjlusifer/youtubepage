@@ -1,55 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
     const shortsContainer = document.querySelector(".shorts-container");
     const shortsSlider = document.querySelector(".shorts-slider");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const icons = document.querySelector(".icons");
     let isDown = false;
     let startX;
     let scrollLeft;
 
     shortsContainer.addEventListener("mousedown", (e) => {
         isDown = true;
-        shortsContainer.classList.add("active");
         startX = e.pageX - shortsContainer.offsetLeft;
         scrollLeft = shortsContainer.scrollLeft;
     });
 
     shortsContainer.addEventListener("mouseleave", () => {
         isDown = false;
-        shortsContainer.classList.remove("active");
     });
 
     shortsContainer.addEventListener("mouseup", () => {
         isDown = false;
-        shortsContainer.classList.remove("active");
     });
 
     shortsContainer.addEventListener("mousemove", (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - shortsContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Speed factor
+        const walk = (x - startX) * 2;
         shortsContainer.scrollLeft = scrollLeft - walk;
     });
 
-    // Auto-hide shorts on the left when scrolling
+    // Auto-hide leftmost shorts dynamically
     shortsContainer.addEventListener("scroll", () => {
         const shorts = document.querySelectorAll(".short");
         shorts.forEach((short, index) => {
             if (index === 0 && shortsContainer.scrollLeft > 50) {
-                short.style.opacity = "0";
-                short.style.pointerEvents = "none";
+                short.classList.add("hidden");
             } else {
-                short.style.opacity = "1";
-                short.style.pointerEvents = "auto";
+                short.classList.remove("hidden");
             }
         });
     });
 
-    // Hide scrollbar visually but keep functionality
-    shortsContainer.classList.add("hide-scrollbar");
-    shortsContainer.style.overflowX = "auto";
-    shortsContainer.style.scrollBehavior = "smooth";
-
-    // Touch support for sliding
+    // Touch support for mobile sliding
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -60,6 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
     shortsContainer.addEventListener("touchmove", (e) => {
         touchEndX = e.touches[0].clientX;
         let swipeDistance = touchStartX - touchEndX;
-        shortsContainer.scrollLeft += swipeDistance * 0.5; // Adjust speed factor
+        shortsContainer.scrollLeft += swipeDistance * 0.5;
+    });
+
+    // Mobile menu toggle functionality
+    menuToggle.addEventListener("click", () => {
+        icons.classList.toggle("show");
     });
 });

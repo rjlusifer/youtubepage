@@ -80,40 +80,49 @@ header {
 }
 
 .short iframe {
-    width: 192px;
-    height: 341px;
+    width: 360px;
+    height: 640px;
     border-radius: 10px;
     border: none;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
     gap: 15px;
     padding: 20px;
     justify-items: center;
 }
 
 .video iframe {
-    width: 560px;
-    height: 315px;
+    width: 1280px;
+    height: 720px;
     border-radius: 10px;
     border: none;
+}
+
+@media (max-width: 1024px) {
+    .short iframe {
+        width: 270px;
+        height: 480px;
+    }
+    .video iframe {
+        width: 854px;
+        height: 480px;
+    }
 }
 
 @media (max-width: 768px) {
     .search-box input {
         width: 150px;
     }
-
     .short iframe {
-        width: 160px;
-        height: 284px;
+        width: 240px;
+        height: 426px;
     }
-
     .video iframe {
-        width: 560px;
-        height: 270px;
+        width: 640px;
+        height: 360px;
     }
 }
 
@@ -121,14 +130,12 @@ header {
     .search-box input {
         width: 100px;
     }
-
     .short iframe {
-        width: 120px;
-        height: 214px;
+        width: 180px;
+        height: 320px;
     }
-
     .video iframe {
-        width: 320px;
-        height: 180px;
+        width: 426px;
+        height: 240px;
     }
 }

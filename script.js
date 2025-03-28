@@ -4,18 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
     let isDragging = false;
     let startX, scrollLeft;
 
+    // Hide scrollbar
+    shortsContainer.style.overflowX = "hidden";
+    shortsContainer.style.scrollbarWidth = "none"; // Firefox
+    shortsContainer.style.msOverflowStyle = "none"; // IE/Edge
+
     shortsContainer.addEventListener("mousedown", (e) => {
         isDragging = true;
         startX = e.pageX - shortsContainer.offsetLeft;
         scrollLeft = shortsContainer.scrollLeft;
+        shortsContainer.style.cursor = "grabbing";
     });
 
     shortsContainer.addEventListener("mouseleave", () => {
         isDragging = false;
+        shortsContainer.style.cursor = "grab";
     });
 
     shortsContainer.addEventListener("mouseup", () => {
         isDragging = false;
+        shortsContainer.style.cursor = "grab";
     });
 
     shortsContainer.addEventListener("mousemove", (e) => {

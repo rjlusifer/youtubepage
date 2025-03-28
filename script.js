@@ -1,50 +1,37 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const shortsContainer = document.querySelector(".shorts-container");
-    const shortsSlider = document.querySelector(".shorts-slider");
-    let isDragging = false;
-    let startX, scrollLeft;
+document.addEventListener('DOMContentLoaded', function () {
+    const shortsContainer = document.querySelector('.shorts-container');
+    const shortsSlider = document.querySelector('.shorts-slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    // Hide scrollbar
-    shortsContainer.style.overflowX = "hidden";
-    shortsContainer.style.scrollbarWidth = "none"; // Firefox
-    shortsContainer.style.msOverflowStyle = "none"; // IE/Edge
-
-    shortsContainer.addEventListener("mousedown", (e) => {
-        isDragging = true;
+    shortsContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        shortsContainer.classList.add('active');
         startX = e.pageX - shortsContainer.offsetLeft;
         scrollLeft = shortsContainer.scrollLeft;
-        shortsContainer.style.cursor = "grabbing";
     });
 
-    shortsContainer.addEventListener("mouseleave", () => {
-        isDragging = false;
-        shortsContainer.style.cursor = "grab";
+    shortsContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        shortsContainer.classList.remove('active');
     });
 
-    shortsContainer.addEventListener("mouseup", () => {
-        isDragging = false;
-        shortsContainer.style.cursor = "grab";
+    shortsContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        shortsContainer.classList.remove('active');
     });
 
-    shortsContainer.addEventListener("mousemove", (e) => {
-        if (!isDragging) return;
+    shortsContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - shortsContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Speed factor
+        const walk = (x - startX) * 2; // Adjust scrolling speed
         shortsContainer.scrollLeft = scrollLeft - walk;
     });
 
-    // Touch support for mobile devices
-    let touchStartX;
-
-    shortsContainer.addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].clientX;
-    });
-
-    shortsContainer.addEventListener("touchmove", (e) => {
-        const touchMoveX = e.touches[0].clientX;
-        const moveDistance = touchStartX - touchMoveX;
-        shortsContainer.scrollLeft += moveDistance * 2;
-        touchStartX = touchMoveX;
-    });
+    // Hide scrollbar
+    shortsContainer.style.overflowX = 'hidden';
+    shortsContainer.style.scrollbarWidth = 'none'; // Firefox
+    shortsContainer.style.msOverflowStyle = 'none'; // IE & Edge
 });

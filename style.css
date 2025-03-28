@@ -111,6 +111,12 @@ header {
     border: none;
 }
 
+@media (min-width: 1440px) {
+    .video iframe {
+        max-width: 1440px;
+    }
+}
+
 @media (max-width: 1024px) {
     .short iframe {
         width: 270px;

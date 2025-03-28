@@ -67,19 +67,16 @@ header {
 }
 
 .shorts-container {
-    overflow-x: scroll;
+    overflow: hidden;
     display: flex;
     padding: 10px;
-    scrollbar-width: none;
-}
-
-.shorts-container::-webkit-scrollbar {
-    display: none;
+    position: relative;
 }
 
 .shorts-slider {
     display: flex;
     gap: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .short iframe {
@@ -99,7 +96,7 @@ header {
 
 .video iframe {
     width: 100%;
-    height: 180px;
+    height: 315px;
     border-radius: 10px;
     border: none;
 }
@@ -115,7 +112,7 @@ header {
     }
 
     .video iframe {
-        height: 160px;
+        height: 240px;
     }
 }
 
@@ -130,6 +127,6 @@ header {
     }
 
     .video iframe {
-        height: 140px;
+        height: 180px;
     }
 }

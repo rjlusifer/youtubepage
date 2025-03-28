@@ -30,23 +30,36 @@ document.addEventListener("DOMContentLoaded", function () {
         shortsContainer.scrollLeft = scrollLeft - walk;
     });
 
+    // Auto-hide shorts on the left when scrolling
     shortsContainer.addEventListener("scroll", () => {
         const shorts = document.querySelectorAll(".short");
         shorts.forEach((short, index) => {
             if (index === 0 && shortsContainer.scrollLeft > 50) {
                 short.style.opacity = "0";
+                short.style.pointerEvents = "none";
             } else {
                 short.style.opacity = "1";
+                short.style.pointerEvents = "auto";
             }
         });
     });
 
     // Hide scrollbar visually but keep functionality
-    shortsContainer.style.scrollbarWidth = "none";
-    shortsContainer.style.msOverflowStyle = "none";
     shortsContainer.classList.add("hide-scrollbar");
-
-    // Ensure smooth scrolling
     shortsContainer.style.overflowX = "auto";
     shortsContainer.style.scrollBehavior = "smooth";
+
+    // Touch support for sliding
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    shortsContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    shortsContainer.addEventListener("touchmove", (e) => {
+        touchEndX = e.touches[0].clientX;
+        let swipeDistance = touchStartX - touchEndX;
+        shortsContainer.scrollLeft += swipeDistance * 0.5; // Adjust speed factor
+    });
 });

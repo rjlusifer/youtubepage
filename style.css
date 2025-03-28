@@ -208,7 +208,7 @@ header {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .short {
         width: 120px;
         height: 220px;
@@ -220,5 +220,6 @@ header {
     
     .video iframe {
         height: auto;
+        aspect-ratio: 16 / 9;
     }
 }

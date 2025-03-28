@@ -72,19 +72,26 @@ header {
     padding: 10px;
     position: relative;
     white-space: nowrap;
+    width: 100%;
 }
 
 .shorts-slider {
     display: flex;
     gap: 10px;
     transition: transform 0.3s ease-in-out;
-    overflow-x: auto;
+    overflow-x: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
 }
 
 .shorts-slider::-webkit-scrollbar {
     display: none;
+}
+
+.short {
+    flex: 0 0 auto;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .short iframe {

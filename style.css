@@ -10,13 +10,14 @@ body {
 /* Shorts section */
 .shorts-container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
     -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
     padding: 10px;
     white-space: nowrap;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 .shorts-container::-webkit-scrollbar {
@@ -26,6 +27,7 @@ body {
 .shorts-slider {
     display: flex;
     gap: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .short {
@@ -52,6 +54,12 @@ body {
     gap: 20px;
     padding: 20px;
     justify-content: center;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .video iframe {

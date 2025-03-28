@@ -1,32 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Scroll shorts horizontally
     const shortsContainer = document.querySelector(".shorts-container");
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+    const shortsSlider = document.querySelector(".shorts-slider");
+    let isDragging = false;
+    let startX, scrollLeft;
 
     shortsContainer.addEventListener("mousedown", (e) => {
-        isDown = true;
+        isDragging = true;
         startX = e.pageX - shortsContainer.offsetLeft;
         scrollLeft = shortsContainer.scrollLeft;
     });
+
     shortsContainer.addEventListener("mouseleave", () => {
-        isDown = false;
+        isDragging = false;
     });
+
     shortsContainer.addEventListener("mouseup", () => {
-        isDown = false;
+        isDragging = false;
     });
+
     shortsContainer.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
+        if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - shortsContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll speed
+        const walk = (x - startX) * 2; // Speed factor
         shortsContainer.scrollLeft = scrollLeft - walk;
     });
 
-    // Search functionality (dummy feature)
-    document.querySelector(".search-box button").addEventListener("click", function() {
-        const query = document.querySelector(".search-box input").value;
-        alert("Search feature is under development: " + query);
+    // Touch support for mobile devices
+    let touchStartX;
+
+    shortsContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    shortsContainer.addEventListener("touchmove", (e) => {
+        const touchMoveX = e.touches[0].clientX;
+        const moveDistance = touchStartX - touchMoveX;
+        shortsContainer.scrollLeft += moveDistance * 2;
+        touchStartX = touchMoveX;
     });
 });
